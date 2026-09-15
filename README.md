@@ -1,4 +1,4 @@
-# 🎙️ Rachana — Multilingual TTS & Voice Cloning
+# 🎙️ Multilingual TTS & Voice Cloning
 
 > Fine-tuned **XTTS v2** and zero-shot **IndicF5** voice cloning for Hindi, English, Marathi, Hinglish, and Marnglish — with an interactive Gradio web UI.
 
