@@ -1,0 +1,7 @@
+1. Native Hindi|hi|नमस्ते, आज हम इनकम टैक्स और फाइनेंस के बारे में बात करेंगे।
+2. Native Marathi|hi|नमस्कार, आज आपण इनकम टॅक्स आणि फायनान्स बद्दल माहिती घेणार आहोत।
+3. Native English|en|Hello, today we are going to talk about income tax and finance.
+4. Hinglish|hi|Aaj hum income tax ke baare mein baat karenge aur dekhenge ki tax planning kaise karni hai.
+5. Marnglish|hi|Aaj apan income tax cha calculation kasa karaycha te samjun ghenar aahot.
+6. English technical terms inside Hindi|hi|Aapko apna ITR file karna hai, aur uske baad tax calculation properly check karni hai.
+7. English technical terms inside Marathi|hi|Tumhala ITR file karaycha asel tar first tumhi your income details properly check kara.

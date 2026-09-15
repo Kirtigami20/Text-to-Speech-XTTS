@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Audio
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.ogg
+*.aac
+
+# Model files
+*.pth
+*.pt
+*.ckpt
+*.bin
+*.safetensors
+*.onnx
+
+# Large model/output folders
+training/xtts_output/
+training/xtts_model_files/
+training/xtts_evaluations/
+training/xtts_experiment/
+models/
+checkpoints/
+
+# Raw / processed audio data
+data/
+processed/
+processed_clean/
+segments/
+
+# Generated audio/output
+test_outputs/
+test_output_1_hi.wav
+voice_comparison/
+training/voice_comparison/
+indicf5_outputs/
+
+# Generated reports
+reports/
+training/text_normalizer/reports/
+
+# Generated dataset metadata and manifests
+training/*.csv
+training/*.json
+training/*.jsonl
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+*.zip
+*.rar
+.DS_Store
+Thumbs.db
+
+# Keep evaluation sentences
+!training/evaluation/evaluation_sentences.txt

@@ -1,0 +1,79 @@
+==========================================================================
+                     XTTS DIAGNOSTIC REPORT                               
+==========================================================================
+
+--- 1. DATASET BREAKDOWN & LANGUAGE TAGS ---
+Train Metadata File      : C:\gray matrix\text_to_speech\training\train_metadata_final.csv (1521 samples)
+Validation Metadata File : C:\gray matrix\text_to_speech\training\validation_metadata_final.csv (169 samples)
+
+Dataset Language Tags in Metadata files: NONE (No 'language' column present in CSV files)
+Language Tag passed in train_xtts.py BaseDatasetConfig: 'hi'
+Languages trained: All audio samples (Hindi, Marathi, English) were assigned language tag 'hi'.
+
+Transcripts breakdown by audio directory path & script type:
+
+[TRAIN SET - Total: 1521]
+  * HINDI    : Total = 598   | Devanagari-only = 113   | Roman-only = 3     | Mixed = 482  
+  * MARATHI  : Total = 578   | Devanagari-only = 352   | Roman-only = 1     | Mixed = 225  
+  * ENGLISH  : Total = 345   | Devanagari-only = 0     | Roman-only = 345   | Mixed = 0    
+  * UNKNOWN  : Total = 0     | Devanagari-only = 0     | Roman-only = 0     | Mixed = 0    
+
+[VALIDATION SET - Total: 169]
+  * HINDI    : Total = 67    | Devanagari-only = 18    | Roman-only = 0     | Mixed = 49   
+  * MARATHI  : Total = 63    | Devanagari-only = 37    | Roman-only = 0     | Mixed = 26   
+  * ENGLISH  : Total = 39    | Devanagari-only = 0     | Roman-only = 39    | Mixed = 0    
+  * UNKNOWN  : Total = 0     | Devanagari-only = 0     | Roman-only = 0     | Mixed = 0    
+
+--- 2. LANGUAGE ID MAPPING & MARATHI ID STATUS ---
+Language IDs used in XTTS training config / loader:
+  - Hindi (hi)   : Passed as 'hi'
+  - English (en) : Passed as 'hi' (hardcoded in BaseDatasetConfig)
+  - Marathi (mr) : Passed as 'hi' (hardcoded in BaseDatasetConfig)
+Status of Marathi ID:
+  - Is 'mr' supported natively by XTTS-v2 model? NO. XTTS-v2 stock languages are:
+    ['en', 'es', 'fr', 'de', 'it', 'pt', 'pl', 'tr', 'ru', 'nl', 'cs', 'ar', 'zh-cn', 'hu', 'ko', 'ja', 'hi']
+  - Marathi is completely missing its own language ID 'mr' in XTTS stock model.
+  - During training in train_xtts.py, Marathi was passed as 'hi' (Hindi).
+
+--- 3. XTTS VOCABULARY & CHARACTER COVERAGE ---
+Vocab files found (1):
+  Path     : C:\gray matrix\text_to_speech\training\xtts_output\XTTS_v2_original_model_files\vocab.json
+  Size     : 6681
+  Is Stock : True
+
+Marathi Special Characters Coverage Analysis:
+Char   Name         Unicode    In Dataset?    Dataset Count   In XTTS vocab.json?
+---------------------------------------------------------------------------
+ळ      Devanagari LLA ळ          YES            17              YES
+ऱ      Devanagari RRA ऱ          NO             0               YES
+ऴ      Devanagari LLLA ऴ          NO             0               NO
+ॲ      Devanagari Chandra A ॲ          NO             0               YES
+ऑ      Devanagari Chandra O ऑ          YES            13              YES
+
+--- 4. TRAINING HYPERPARAMETERS & RUN CONFIGURATION ---
+Latest Run Directory    : rachana_xtts_clean_2epoch-August-27-2026_12+14PM-0000000
+Learning Rate (lr)      : 5e-06
+Epochs                  : 2
+Batch Size              : 2
+Grad Accumulation Steps : 8
+Effective Batch Size    : 16
+Optimizer               : AdamW
+LR Scheduler            : MultiStepLR
+
+--- 5. MODEL FREEZE / UNFREEZE STATUS ---
+GPT Encoder / Autoregressive Model : UNFROZEN (Fine-tuned during training)
+Decoder (DVAE)                     : FROZEN (Loaded static from dvae.pth)
+Vocoder (HiFi-GAN / Mel Spectrogram): FROZEN (Loaded static from mel_stats.pth)
+
+--- 6. ACTUAL TRAINING STEPS FROM LOGS ---
+Log File Path           : C:\gray matrix\text_to_speech\training\xtts_output\rachana_xtts_clean_2epoch-August-27-2026_12+14PM-0000000\trainer_0_log.txt
+Max Global Step Logged  : 1520
+Epochs Logged           : [0, 1]
+Recent Log Entries      :
+  > EVALUATION
+  --> EVAL PERFORMANCE
+  | > avg_loader_time: 0.015867263078689575 (-0.0024700909852981567)
+  | > avg_loss_text_ce: 0.03386155859334394 (-0.001006207661703229)
+  | > avg_loss_mel_ce: 3.0476172491908073 (-0.08693137764930725)
+  | > avg_loss: 3.081478789448738 (-0.0879376009106636)
+  > BEST MODEL : C:\gray matrix\text_to_speech\training\xtts_output\rachana_xtts_clean_2epoch-August-27-2026_12+14PM-0000000\best_model_1522.pth
